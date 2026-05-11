@@ -1,0 +1,28 @@
+{
+    "id": "rng-guardian",
+    "title": "RNG Guardian",
+    "description": "A module to prevent common ways that a player might change the result of their dice rolls, along with forcing rolls to use Permuted Congruential Generator for their RNG.",
+    "version": "14.0.0",
+    "compatibility": {
+        "minimum": "13",
+        "maximum": "14",
+        "verified": "14"
+    },
+    "authors": [
+        {
+            "name": "7H3LaughingMan",
+            "discord": "7h3laughingman",
+            "url": "https://github.com/7H3LaughingMan",
+            "flags": {}
+        }
+    ],
+    "esmodules": ["dist/dice-protector.js"],
+    "relationships": {
+        "requires": [
+            {
+                "id": "lib-wrapper",
+                "type": "module"
+            }
+        ]
+    }
+}

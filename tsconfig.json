@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "types": [
+            "@7h3laughingman/foundry-types",
+            "@7h3laughingman/foundry-helpers/lib-wrapper",
+            "jquery"
+        ]
+    }
+}

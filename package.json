@@ -1,0 +1,35 @@
+{
+    "name": "dice-protector",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "pnpm run build:wasm && pnpm run build:vite",
+        "build:vite": "vite build",
+        "build:wasm": "wasm-pack build",
+        "changelog:create": "changelog --format markdownlint --create",
+        "changelog:release": "changelog --format markdownlint --release",
+        "configure": "node ./build/configure.ts",
+        "launch": "node ./build/launch.ts",
+        "link": "node ./build/link.ts"
+    },
+    "author": "7H3LaughingMan",
+    "license": "MIT",
+    "packageManager": "pnpm@11.0.8",
+    "dependencies": {
+        "@7h3laughingman/foundry-helpers": "^14.360.0",
+        "@7h3laughingman/foundry-types": "^14.360.9",
+        "@types/jquery": "^3.5.34",
+        "remeda": "^2.34.0"
+    },
+    "devDependencies": {
+        "@types/prompts": "^2.4.9",
+        "commander": "^14.0.3",
+        "keep-a-changelog": "^3.0.2",
+        "lowdb": "^7.0.1",
+        "prettier": "^3.8.3",
+        "prompts": "^2.4.2",
+        "typescript": "^5.9.3",
+        "vite": "^8.0.11",
+        "vite-plugin-wasm": "^3.6.0"
+    }
+}
