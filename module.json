@@ -16,7 +16,7 @@
             "flags": {}
         }
     ],
-    "esmodules": ["dist/dice-protector.js"],
+    "esmodules": ["dist/rng-guardian.js"],
     "relationships": {
         "requires": [
             {
