@@ -24,5 +24,12 @@
                 "type": "module"
             }
         ]
-    }
+    },
+    "url": "https://github.com/7H3LaughingMan/rng-guardian",
+    "manifest": "",
+    "download": "",
+    "license": "https://github.com/7H3LaughingMan/rng-guardian/blob/master/LICENSE.md",
+    "readme": "https://github.com/7H3LaughingMan/rng-guardian/blob/master/README.md",
+    "bugs": "https://github.com/7H3LaughingMan/rng-guardian/issues",
+    "changelog": "https://github.com/7H3LaughingMan/rng-guardian/blob/master/CHANGELOG.md"
 }
