@@ -143,7 +143,12 @@ async function checkRoll({ userId, roll }: { userId: string; roll: RollJSON }) {
 
             await clonedTerm.evaluate(originalRoll.options.evaluate as EvaluateRollParams | undefined);
 
-            if (!R.isDeepEqual(die.results, clonedTerm.results)) {
+            if (
+                !R.isDeepEqual(
+                    die.results.map((value) => value.result),
+                    clonedTerm.results.map((value) => value.result)
+                )
+            ) {
                 ui.notifications.warn(
                     `${user.name} tried to roll "${die.formula}" and was supposed to get [${clonedTerm.results.map((r) => r.result).join(", ")}], but instead got [${die.results.map((r) => r.result).join(", ")}].`,
                     { permanent: true }
@@ -257,11 +262,11 @@ Hooks.on(
     "createChatMessage",
     // @ts-expect-error
     (document: ChatMessage, _options: DatabaseCreateOperation<ChatMessage>, userId: string) => {
-        let user = game.users.get(userId)!;
-        if (!user.isActiveGM) return;
+        if (!game.user.isActiveGM) return;
+        if (userId === game.userId) return;
 
         for (const roll of document.rolls) {
-            game.users.activeGM?.query(`${module.id}.checkRoll`, { userId: user._id, roll: roll.toJSON() });
+            checkRoll({ userId, roll: roll.toJSON() });
         }
     }
 );
@@ -270,11 +275,11 @@ Hooks.on(
     "updateChatMessage",
     // @ts-expect-error
     (document: ChatMessage, _changed: object, _options: DatabaseUpdateOperation<ChatMessage>, userId: string) => {
-        let user = game.users.get(userId)!;
-        if (!user.isActiveGM) return;
+        if (!game.user.isActiveGM) return;
+        if (userId === game.userId) return;
 
         for (const roll of document.rolls) {
-            game.users.activeGM?.query(`${module.id}.checkRoll`, { userId: user._id, roll: roll.toJSON() });
+            checkRoll({ userId, roll: roll.toJSON() });
         }
     }
 );
